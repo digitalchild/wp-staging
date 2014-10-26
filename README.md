@@ -10,14 +10,14 @@ This will install into a directory called staging. This will be the webroot for 
 
 Usage: mysqluser mysqlpass livedb livedoman stagingdomain 
 
-mysqluser = admin username
-mysqlpass = admin pass
-livedb = live database name 
-gitrepo = url to your git repository 
-dbprefx = wordpres database prefix 
-livedomain = current live domain name
-stagingdomain = staging domain name 
+- mysqluser = admin username
+- mysqlpass = admin pass
+- livedb = live database name 
+- gitrepo = url to your git repository 
+- dbprefx = wordpres database prefix 
+- livedomain = current live domain name
+- stagingdomain = staging domain name 
 
 ### TESTED ON ###
 
-This has been tested with MAMP Pro and MAMP on OS X 10.9.5 following the WP-CLI install instructions 
+This has been tested with MAMP Pro and MAMP on OS X 10.9.5 following the WP-CLI install instructions. 
