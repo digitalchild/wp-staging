@@ -17,6 +17,8 @@ Usage: mysqluser mysqlpass livedb livedoman stagingdomain
 - dbprefx = wordpres database prefix 
 - livedomain = current live domain name
 - stagingdomain = staging domain name 
+- installdir = directory to install the staging server to 
+
 
 ### TESTED ON ###
 

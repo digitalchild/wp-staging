@@ -37,12 +37,12 @@ createdb() {
 	$MYSQL -u$4 -p$5 -e "$SQL"
 }
 
-EXPECTED_ARGS=7
+EXPECTED_ARGS=8
 E_BADARGS=65
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-  echo "Usage: $0 mysqluser mysqlpass livedb gitrepo dbprefix livedoman stagingdomain"
+  echo "Usage: $0 mysqluser mysqlpass livedb gitrepo dbprefix livedoman stagingdomain installdir"
   exit $E_BADARGS
 fi
 
@@ -57,6 +57,7 @@ DBNAME=`gendbdetails`
 DBPREFIX=$5
 OLDDOMAIN=$6
 NEWDOMAIN=$7
+INSTALLDIR=$8
 
 echo '---------------------------------------------'
 echo 'WP Staging - The simple staging server script'
@@ -67,13 +68,15 @@ echo '---------------------------------------------'
 echo 'Creating staging server.....'
 echo '---------------------------------------------'
 echo 'Creating staging web-root'
-mkdir staging;  cd staging; 
+mkdir $INSTALLDIR;  cd $INSTALLDIR; 
 createdb $DBNAME $DBUSER $DBPASS $MYSQLUSER $MYSQLPASS
 echo 'Database created....'
 wp core download
 rm -rf license.txt readme.html wp-config-sample.php
 echo 'WP clean up complete...'
-wp core config --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --dbhost=localhost --dbprefix=$DBPREFIX
+wp core config --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --dbhost=localhost --dbprefix=$DBPREFIX --extra-php <<PHP
+define( 'WP_MEMORY_LIMIT', '256M' );
+PHP
 # These details don't matter as they will be overridden as soon as the import is done. 
 wp core install --url='$NEWDOMAIN' --title='Test' --admin_user='admin' --admin_password='password' --admin_email='test@test.com'
 echo 'Base Wordpress configuration completed....'
