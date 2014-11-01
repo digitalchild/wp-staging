@@ -8,7 +8,7 @@ This will install into a directory called staging. This will be the webroot for 
 
 ### USAGE ###
 
-Usage: mysqluser mysqlpass livedb livedoman stagingdomain 
+Usage: mysqluser mysqlpass livedb gitrepo dbprefix livedoman stagingdomain installdir
 
 - mysqluser = admin username
 - mysqlpass = admin pass
