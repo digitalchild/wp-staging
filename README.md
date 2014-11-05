@@ -31,3 +31,4 @@ This has been tested with MAMP Pro and MAMP on OS X 10.9.5 following the WP-CLI 
  - Allow to pass database script as argument 
  - Make it work on cpanel systems 
  - Make creating database and user optional 
+ - Option to remove all other users but specified ids (good for testing ecommerce features)
