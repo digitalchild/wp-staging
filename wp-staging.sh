@@ -89,7 +89,7 @@ rm -f import.sql
 echo 'Updating domain name....'
 wp search-replace $OLDDOMAIN $NEWDOMAIN
 mv wp-content wp-content.orig
-git clone $GITREPO wp-content
+git clone --recursive $GITREPO wp-content
 echo '---------------------------------------------'
 echo 'Staging server created.'
 echo '---------------------------------------------'
