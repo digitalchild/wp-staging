@@ -1,2 +1,7 @@
 *~
 .DS_Store
+bc-staging.sh
+wp-dev.sh
+wp-devonline.sh
+wp-localdev.sh
+wp-report.php
